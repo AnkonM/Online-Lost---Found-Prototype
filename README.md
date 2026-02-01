@@ -6,7 +6,9 @@ An online lost and found portal for institutions like college campuses. This pro
 
 This project's frontend is configured for deployment to GitHub Pages. The frontend can be hosted as a static site, while the backend requires a separate hosting solution.
 
-### Automated Deployment (Recommended)
+📖 **For detailed deployment instructions, see [DEPLOYMENT.md](DEPLOYMENT.md)**
+
+### Quick Start
 
 The repository includes a GitHub Actions workflow that automatically deploys the frontend to GitHub Pages when you push to the `main` branch.
 
@@ -23,42 +25,17 @@ The repository includes a GitHub Actions workflow that automatically deploys the
 
 You can also deploy manually using the gh-pages package:
 
-1. Navigate to the frontend directory:
 ```bash
 cd frontend
-```
-
-2. Install dependencies (if not already installed):
-```bash
 npm install
-```
-
-3. Deploy to GitHub Pages:
-```bash
 npm run deploy
 ```
 
-This will build the app and push it to the `gh-pages` branch.
-
-### Important Notes for GitHub Pages
+### Important Notes
 
 - **Frontend Only**: GitHub Pages hosts static files, so only the React frontend can be deployed this way
-- **Backend Hosting**: The Django backend requires a server environment (see [Backend Hosting Options](#backend-hosting-options) below)
-- **API Configuration**: When deployed, you'll need to update the API endpoint in the frontend to point to your hosted backend
-- **Branch**: The workflow deploys from the `main` branch by default
-
-## Backend Hosting Options
-
-Since GitHub Pages only supports static content, you'll need to host the Django backend separately. Popular options include:
-
-- **Heroku**: Easy deployment for Django apps
-- **Railway**: Modern platform with simple deployment
-- **PythonAnywhere**: Python-specific hosting
-- **DigitalOcean App Platform**: Scalable cloud hosting
-- **AWS Elastic Beanstalk**: Enterprise-grade hosting
-- **Google Cloud Run**: Serverless container hosting
-
-After deploying your backend, update the API endpoint in `frontend/src/services/api.js` to point to your hosted backend URL.
+- **Backend Hosting**: The Django backend requires a server environment (see [DEPLOYMENT.md](DEPLOYMENT.md) for options)
+- **API Configuration**: After deploying, update the API endpoint in the frontend to point to your hosted backend
 
 ## Features
 
