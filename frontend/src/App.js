@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
@@ -15,6 +15,7 @@ function ProtectedRoute({ children }) {
   return user ? children : <Navigate to="/login" />;
 }
 
+// eslint-disable-next-line no-unused-vars
 function AdminRoute({ children }) {
   const { user } = useAuth();
   return user && (user.role === 'admin' || user.is_superuser) ? children : <Navigate to="/" />;

@@ -2,6 +2,64 @@
 
 An online lost and found portal for institutions like college campuses. This project consists of a Django REST API backend and a React.js frontend.
 
+## 🚀 GitHub Pages Deployment
+
+This project's frontend is configured for deployment to GitHub Pages. The frontend can be hosted as a static site, while the backend requires a separate hosting solution.
+
+### Automated Deployment (Recommended)
+
+The repository includes a GitHub Actions workflow that automatically deploys the frontend to GitHub Pages when you push to the `main` branch.
+
+**To enable GitHub Pages:**
+
+1. Go to your repository on GitHub
+2. Click on **Settings** → **Pages**
+3. Under "Build and deployment":
+   - Set **Source** to "GitHub Actions"
+4. Push to the `main` branch or manually trigger the workflow from the **Actions** tab
+5. Your site will be available at: `https://AnkonM.github.io/Online-Lost---Found-Prototype`
+
+### Manual Deployment
+
+You can also deploy manually using the gh-pages package:
+
+1. Navigate to the frontend directory:
+```bash
+cd frontend
+```
+
+2. Install dependencies (if not already installed):
+```bash
+npm install
+```
+
+3. Deploy to GitHub Pages:
+```bash
+npm run deploy
+```
+
+This will build the app and push it to the `gh-pages` branch.
+
+### Important Notes for GitHub Pages
+
+- **Frontend Only**: GitHub Pages hosts static files, so only the React frontend can be deployed this way
+- **Backend Hosting**: The Django backend requires a server environment (see [Backend Hosting Options](#backend-hosting-options) below)
+- **API Configuration**: When deployed, you'll need to update the API endpoint in the frontend to point to your hosted backend
+- **Branch**: The workflow deploys from the `main` branch by default
+
+## Backend Hosting Options
+
+Since GitHub Pages only supports static content, you'll need to host the Django backend separately. Popular options include:
+
+- **Heroku**: Easy deployment for Django apps
+- **Railway**: Modern platform with simple deployment
+- **PythonAnywhere**: Python-specific hosting
+- **DigitalOcean App Platform**: Scalable cloud hosting
+- **AWS Elastic Beanstalk**: Enterprise-grade hosting
+- **Google Cloud Run**: Serverless container hosting
+
+After deploying your backend, update the API endpoint in `frontend/src/services/api.js` to point to your hosted backend URL.
+
 ## Features
 
 - **User Registration and Authentication**: Basic user registration and login with JWT tokens
