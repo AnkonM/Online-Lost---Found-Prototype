@@ -2,6 +2,41 @@
 
 An online lost and found portal for institutions like college campuses. This project consists of a Django REST API backend and a React.js frontend.
 
+## 🚀 GitHub Pages Deployment
+
+This project's frontend is configured for deployment to GitHub Pages. The frontend can be hosted as a static site, while the backend requires a separate hosting solution.
+
+📖 **For detailed deployment instructions, see [DEPLOYMENT.md](DEPLOYMENT.md)**
+
+### Quick Start
+
+The repository includes a GitHub Actions workflow that automatically deploys the frontend to GitHub Pages when you push to the `main` branch.
+
+**To enable GitHub Pages:**
+
+1. Go to your repository on GitHub
+2. Click on **Settings** → **Pages**
+3. Under "Build and deployment":
+   - Set **Source** to "GitHub Actions"
+4. Push to the `main` branch or manually trigger the workflow from the **Actions** tab
+5. Your site will be available at: `https://AnkonM.github.io/Online-Lost---Found-Prototype`
+
+### Manual Deployment
+
+You can also deploy manually using the gh-pages package:
+
+```bash
+cd frontend
+npm install
+npm run deploy
+```
+
+### Important Notes
+
+- **Frontend Only**: GitHub Pages hosts static files, so only the React frontend can be deployed this way
+- **Backend Hosting**: The Django backend requires a server environment (see [DEPLOYMENT.md](DEPLOYMENT.md) for options)
+- **API Configuration**: After deploying, update the API endpoint in the frontend to point to your hosted backend
+
 ## Features
 
 - **User Registration and Authentication**: Basic user registration and login with JWT tokens

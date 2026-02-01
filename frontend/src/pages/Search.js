@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import api from '../services/api';
 import ItemCard from '../components/ItemCard';
 import './Search.css';
@@ -13,11 +13,7 @@ function Search() {
     date_to: '',
   });
 
-  useEffect(() => {
-    fetchItems();
-  }, [filters]);
-
-  const fetchItems = async () => {
+  const fetchItems = useCallback(async () => {
     try {
       setLoading(true);
       const params = new URLSearchParams();
@@ -43,7 +39,11 @@ function Search() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [filters]);
+
+  useEffect(() => {
+    fetchItems();
+  }, [fetchItems]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
