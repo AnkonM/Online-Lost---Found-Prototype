@@ -15,6 +15,8 @@ function ProtectedRoute({ children }) {
   return user ? children : <Navigate to="/login" />;
 }
 
+// AdminRoute is reserved for future admin-only routes (e.g., item moderation, user management)
+// Currently not in use but kept for planned admin dashboard features
 // eslint-disable-next-line no-unused-vars
 function AdminRoute({ children }) {
   const { user } = useAuth();
